@@ -1,24 +1,25 @@
 # from overhead_manager import OverheadManager
-from overhead_manager import overhead
-import math
+from overload_manager import overload
 
 
-@overhead.register(int, float)
-def hoge(a, b):
-    print(a * math.cos(b))
+@overload.register(int)
+def hoge(a):
+    print("This function can only print integer")
+    print(f"value: {a}, type: {type(a)}")
+
+@overload.register(float)
+def hoge(a):
+    print("This function can only print float")
+    print(f"value: {a}, type: {type(a)}")
 
 
-@overhead.register(float, float)
-def hoge(a, b):
-    print(a * math.sin(b))
+overload.execute(a=10)
+# result:
+# This function can only print integer
+# print(f"value: 10, type: <class `int`>
 
+overload.execute(a=10.0)
+# result:
+# This function can only print float
+# print(f"value: 10.0, type: <class `float`>
 
-@overhead.register(int, float, str)
-def hoge(a, b, c):
-    print(a)
-    print(b)
-    print(c)
-
-
-overhead.execute(a=10, b=2.0)
-overhead.execute(a=10.0, b=2.0)

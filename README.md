@@ -13,14 +13,14 @@ from overload_manager import overload
 Next, add decorator to functions you want to handle as overload function like below.
 ```
 @overload.register(int)
-def print(a):
+def hoge(a):
     print("This function can only print integer")
     print(f"value: {a}, type: {type(a)}"
 
 @overload.register(float)
-def print(a):
+def hoge(a):
     print("This function can only print float")
-    print(f"value: {a}, type: {tyoe(a)}")
+    print(f"value: {a}, type: {type(a)}")
 ```
 You can register function by calling overload.register.
 When you call it, you habe to set arguments' data-type. If you set same argument more than twice, they are regarded as same function.
