@@ -32,11 +32,21 @@ class OverloadManager:
         return _decorator
     
     def describe_function(self):
+        """ describe function you register"""
         for p, func in self.__param_func_pair.items():
             print(f"function name:{func}")
             print(f"parameter: {p}")
 
     def execute(self, *args, **kwargs):
+        """ execute function according to arguments you set this function
+            This function automatically check arguments and switch functions
+
+        Arguments:
+            args -- arguments without keyword
+
+        Keyword Arguments:
+            kwargs -- arguments with keyword
+        """
         type_list = tuple([type(i) for i in kwargs.values()])
         func = self.__param_func_pair[type_list]
         func(**kwargs)
