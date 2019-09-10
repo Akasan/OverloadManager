@@ -15,7 +15,7 @@ Next, add decorator to functions you want to handle as overload function like be
 @overload.register(int)
 def hoge(a):
     print("This function can only print integer")
-    print(f"value: {a}, type: {type(a)}"
+    print(f"value: {a}, type: {type(a)}")
 
 @overload.register(float)
 def hoge(a):
