@@ -21,6 +21,12 @@ def hoge(a):
 def hoge(a):
     print("This function can only print float")
     print(f"value: {a}, type: {type(a)}")
+
+@overload.register(int, float)
+def hoge(a, b):
+    print("This function can only print int and float at once")
+    print(f"value: {a}, type: {type(a)}")
+    print(f"value: {b}, type: {type(b}}")
 ```
 You can register function by calling overload.register.
 When you call it, you have to set arguments' data-type. If you set same argument more than twice, they are regarded as same function.
@@ -36,5 +42,12 @@ overload.execute(a=10.0)
 # result:
 # This function can only print float
 # value: 10.0, type: <class `float`>
+
+overload.execute(a=10, b=10.0)
+# result:
+# This function can only print int and float at once
+# value: 10, type: <class `int`>
+# value: 10.0, type: <class `float`>
+
 
 ```

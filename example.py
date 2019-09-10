@@ -16,10 +16,10 @@ def hoge(a):
 overload.execute(a=10)
 # result:
 # This function can only print integer
-# print(f"value: 10, type: <class `int`>
+#value: 10, type: <class `int`>
 
 overload.execute(a=10.0)
 # result:
 # This function can only print float
-# print(f"value: 10.0, type: <class `float`>
+# value: 10.0, type: <class `float`>
 

@@ -1,6 +1,18 @@
 from pprint import pprint
 
 
+class InvalidArgumentsError(Exception):
+    """ This raise when called execute with invalid arguments"""
+    def __init__(self, mes):
+        super(InvalidArgumentsError, self).__init__(mes)
+
+
+class ArgumentOverwriteError(Exception):
+    """ This raise when arguments already registered are to be registered again"""
+    def __init__(self, mes):
+        super(ArgumentOverwriteError, self).__init__(mes)
+
+
 class OverloadManager:
     """ OverheadManager allows you to handle fucntions which have same name like Overhead in C/C++.
         You can register function like following
@@ -21,6 +33,9 @@ class OverloadManager:
             parameter -- parameter 
         """
         def _decorator(func):
+            if parameter in self.__param_func_pair:
+                raise ArgumentOverwriteError("Arguments are already registered")
+
             self.__func[self.__func_num] = func
             self.__func_num += 1
             self.__param_func_pair[parameter] = func
@@ -47,8 +62,12 @@ class OverloadManager:
         Keyword Arguments:
             kwargs -- arguments with keyword
         """
-        type_list = tuple([type(i) for i in kwargs.values()])
-        func = self.__param_func_pair[type_list]
+        type_pair = tuple([type(i) for i in kwargs.values()])
+       
+        if not type_pair in self.__param_func_pair:
+            raise InvalidArgumentsError("You specify invalid arguments")
+
+        func = self.__param_func_pair[type_pair]
         func(**kwargs)
 
 
