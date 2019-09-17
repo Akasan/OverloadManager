@@ -12,6 +12,10 @@ def hoge(a):
     print("This function can only print float")
     print(f"value: {a}, type: {type(a)}")
 
+@overload.register(float)
+def hoge(a):
+    print(a)
+
 
 overload.execute(a=10)
 # result:

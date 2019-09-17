@@ -1,6 +1,3 @@
-from pprint import pprint
-
-
 class InvalidArgumentsError(Exception):
     """ This raise when called execute with invalid arguments"""
     def __init__(self, mes):
@@ -34,7 +31,10 @@ class OverloadManager:
         """
         def _decorator(func):
             if parameter in self.__param_func_pair:
-                raise ArgumentOverwriteError("Arguments are already registered")
+                print("You specify arguments already registered before.")
+                flag = input("Will you register again(Yes: Y/y No: N/n)? (won't keep previous function) >>> ")
+                if flag in ("N", "n"):
+                    raise ArgumentOverwriteError("Arguments are already registered")
 
             self.__func[self.__func_num] = func
             self.__func_num += 1
