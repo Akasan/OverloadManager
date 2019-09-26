@@ -48,6 +48,7 @@ overload.execute(a=10, b=10.0)
 # This function can only print int and float at once
 # value: 10, type: <class `int`>
 # value: 10.0, type: <class `float`>
-
-
 ```
+
+## Scheduled for implementation
+- support for class method
