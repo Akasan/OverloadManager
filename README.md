@@ -6,12 +6,12 @@ You can easily use functions which have the same name like C/C++.
 
 ## HOW TO
 First, please import decorator as below
-```
+```python
 from overload_manager import overload
 ```
 
 Next, add decorator to functions you want to handle as overload function like below.
-```
+```python
 @overload.register(int)
 def hoge(a):
     print("This function can only print integer")
@@ -32,7 +32,7 @@ You can register function by calling overload.register.
 When you call it, you have to set arguments' data-type. If you set same argument more than twice, they are regarded as same function.
 
 Finally, you can execute function as below.
-```
+```python
 overload.execute(a=10)
 # result:
 # This function can only print integer
