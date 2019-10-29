@@ -1,29 +1,33 @@
 # from overhead_manager import OverheadManager
-from overload_manager import overload
+from OverloadManager.overload_manager import OverloadManager
 
 
-@overload.register(int)
+hoge_manager = OverloadManager()
+
+@hoge_manager.register(int)
 def hoge(a):
     print("This function can only print integer")
     print(f"value: {a}, type: {type(a)}")
 
-@overload.register(float)
+@hoge_manager.register(float)
 def hoge(a):
     print("This function can only print float")
     print(f"value: {a}, type: {type(a)}")
 
-@overload.register(float)
+@hoge_manager.register(str)
 def hoge(a):
-    print(a)
+    print("This function can only print float")
+    print(f"value: {a}, type: {type(a)}")
 
 
-overload.execute(a=10)
+hoge_manager(a=10)
 # result:
 # This function can only print integer
 #value: 10, type: <class `int`>
 
-overload.execute(a=10.0)
+hoge_manager(a=10.0)
 # result:
 # This function can only print float
 # value: 10.0, type: <class `float`>
 
+hoge_manager(a="10.0")

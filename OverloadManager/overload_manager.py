@@ -23,6 +23,15 @@ class OverloadManager:
         self.__func_num = 1
         self.__param_func_pair = {}
 
+    def __call__(self, *args, **kwargs):
+        """ new execution
+        """
+        _type = tuple([type(a) for a in kwargs.values()])
+        if not _type in self.__param_func_pair:
+            raise InvalidArgumentsError("You specify invalid arguments")
+        
+        self.__param_func_pair[_type](**kwargs)
+
     def register(self, *parameter):
         """ register function
 
@@ -69,6 +78,3 @@ class OverloadManager:
 
         func = self.__param_func_pair[type_pair]
         func(**kwargs)
-
-
-overload = OverloadManager()
