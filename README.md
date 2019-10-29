@@ -62,4 +62,8 @@ hoge_manager(a=10.0)
 
 # NG
 hoge_manager(10.0)
+=======
 ```
+
+## Scheduled for implementation
+- support for class method
