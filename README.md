@@ -55,7 +55,7 @@ hoge_manager(a=10, b=10.0)
 ```
 
 So far, you have to call function with parameter name and value both.
-You can't call funcrtion like below
+You can't call function like below
 ```python
 # OK
 hoge_manager(a=10.0)
