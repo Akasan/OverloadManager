@@ -32,7 +32,7 @@ def hoge(a, b):
     print(f"value: {a}, type: {type(a)}")
     print(f"value: {b}, type: {type(b}}")
 ```
-You can register function by calling overload.register.
+You can register function by calling `overload.register`.
 When you call it, you have to set arguments' data-type. If you set same argument more than twice, they are regarded as same function.
 
 Finally, you can execute function as below.
@@ -55,7 +55,7 @@ hoge_manager(a=10, b=10.0)
 ```
 
 So far, you have to call function with parameter name and value both.
-You can't call function like below
+You can call function like below
 ```python
 # OK
 hoge_manager(a=10.0)
