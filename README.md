@@ -7,7 +7,7 @@ You can easily use functions which have the same name like C/C++.
 ## HOW TO
 First, please import decorator as below
 ```python
-from overload_manager import OverloadManager
+from OverloadManager import OverloadManager
 
 # I recommend the instance name like <function_name>_manager
 # For this example, like below

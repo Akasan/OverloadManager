@@ -1,3 +1,6 @@
+from typint import Dict, Any
+
+
 class InvalidArgumentsError(Exception):
     """ This raise when called execute with invalid arguments"""
     def __init__(self, mes):
@@ -19,9 +22,9 @@ class OverloadManager:
         3. both 1 and 2 
     """
     def __init__(self):
-        self.__func = {}
-        self.__func_num = 1
-        self.__param_func_pair = {}
+        self.__func: Dict[int, Any] = {}
+        self.__func_num: int = 1
+        self.__param_func_pair: Dict[Any, Any: = {}
 
     def __call__(self, *args, **kwargs):
         """ new execution
@@ -32,7 +35,7 @@ class OverloadManager:
         
         self.__param_func_pair[_type](**kwargs)
 
-    def register(self, *parameter):
+    def register(self, *parameter) -> Any:
         """ register function
 
         Keyword Arguments:
