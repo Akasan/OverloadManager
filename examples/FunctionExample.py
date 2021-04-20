@@ -1,7 +1,5 @@
 from typing import Any
-import sys
-sys.path.append("../")
-from OverloadManager.OverloadManager import OverloadManager
+from OverloadManager import OverloadManager
 
 hoge = OverloadManager()
 
